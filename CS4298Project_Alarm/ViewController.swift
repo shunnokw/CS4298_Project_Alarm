@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         date = datePicker.date
         
         content.title = "Alarm"
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound(named: "bell.wav")
         
         
         var triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)

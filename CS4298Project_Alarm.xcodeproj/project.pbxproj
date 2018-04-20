@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		36E115582089F48200288743 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E115572089F48200288743 /* TimeViewController.swift */; };
+		36E1155C2089FE6900288743 /* bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 36E1155B2089FE6900288743 /* bell.wav */; };
 		C397BE9E208434A800B5A7F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C397BE9D208434A800B5A7F0 /* AppDelegate.swift */; };
 		C397BEA0208434A800B5A7F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C397BE9F208434A800B5A7F0 /* ViewController.swift */; };
 		C397BEA3208434A800B5A7F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C397BEA1208434A800B5A7F0 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		36E115572089F48200288743 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		36E1155B2089FE6900288743 /* bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bell.wav; sourceTree = "<group>"; };
 		C397BE9A208434A800B5A7F0 /* CS4298Project_Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS4298Project_Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C397BE9D208434A800B5A7F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C397BE9F208434A800B5A7F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				36E115572089F48200288743 /* TimeViewController.swift */,
 				C397BEA1208434A800B5A7F0 /* Main.storyboard */,
 				C397BEA4208434A800B5A7F0 /* Assets.xcassets */,
+				36E1155B2089FE6900288743 /* bell.wav */,
 				C397BEA6208434A800B5A7F0 /* LaunchScreen.storyboard */,
 				C397BEA9208434A800B5A7F0 /* Info.plist */,
 			);
@@ -129,6 +132,7 @@
 				C397BEA8208434A800B5A7F0 /* LaunchScreen.storyboard in Resources */,
 				C397BEA5208434A800B5A7F0 /* Assets.xcassets in Resources */,
 				C397BEA3208434A800B5A7F0 /* Main.storyboard in Resources */,
+				36E1155C2089FE6900288743 /* bell.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
