@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     let center = UNUserNotificationCenter.current()
     let content = UNMutableNotificationContent()
+    let dateFormatter = DateFormatter()
+    var date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +41,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func setAlarm(_ sender: Any) {
-        let dateFormatter = DateFormatter()
+        
         dateFormatter.timeZone = NSTimeZone.default
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .short
         dateFormatter.locale = NSLocale.system
         
+        date = datePicker.date
         
-        let date = datePicker.date
         content.title = "Alarm"
         content.sound = UNNotificationSound.default()
         
@@ -68,6 +70,8 @@ class ViewController: UIViewController {
             }
         })
         
+        let tvc = TimeViewController()
+        tvc.timeString = dateFormatter.string(from: date)
         
         let alert = UIAlertController(title: "Set alarm successsfully!", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
@@ -76,8 +80,18 @@ class ViewController: UIViewController {
         }))
         
         self.present(alert, animated: true, completion: nil)
+    
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "segue") {
+            let tvc : TimeViewController = segue.destination as! TimeViewController
+            tvc.timeString = dateFormatter.string(from: date)
+        }
+    }
+    
     
     func setNotification() {
         let snoozeAction = UNNotificationAction(identifier: "Snooze",

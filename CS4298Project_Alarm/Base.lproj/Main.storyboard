@@ -50,28 +50,45 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Time View Controller-->
         <scene sceneID="M1x-11-qNX">
             <objects>
-                <viewController id="zOq-bY-jt3" sceneMemberID="viewController">
+                <viewController id="zOq-bY-jt3" customClass="TimeViewController" customModule="CS4298Project_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ctk-oZ-NIe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COUNTDOWN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxl-2O-F2y">
-                                <rect key="frame" x="115.5" y="120.5" width="144" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm will ring at:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxl-2O-F2y">
+                                <rect key="frame" x="107" y="170.5" width="161.5" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZJ-Sx-mkV">
+                                <rect key="frame" x="152" y="315.5" width="71" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGk-ov-PKP">
+                                <rect key="frame" x="149" y="468.5" width="76" height="30"/>
+                                <state key="normal" title="Stop Alarm"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Gxl-2O-F2y" firstAttribute="centerY" secondItem="ctk-oZ-NIe" secondAttribute="centerY" constant="-200" id="J3O-y8-vNz"/>
+                            <constraint firstItem="yGk-ov-PKP" firstAttribute="centerY" secondItem="ctk-oZ-NIe" secondAttribute="centerY" constant="150" id="DeM-Hq-FxU"/>
+                            <constraint firstItem="Gxl-2O-F2y" firstAttribute="centerY" secondItem="ctk-oZ-NIe" secondAttribute="centerY" constant="-150" id="WbG-GW-lA5"/>
+                            <constraint firstItem="yZJ-Sx-mkV" firstAttribute="centerY" secondItem="ctk-oZ-NIe" secondAttribute="centerY" id="ZwT-FT-YgS"/>
+                            <constraint firstItem="yGk-ov-PKP" firstAttribute="centerX" secondItem="ctk-oZ-NIe" secondAttribute="centerX" id="ebl-iY-KNf"/>
                             <constraint firstItem="Gxl-2O-F2y" firstAttribute="centerX" secondItem="ctk-oZ-NIe" secondAttribute="centerX" id="rSh-dK-Ege"/>
+                            <constraint firstItem="yZJ-Sx-mkV" firstAttribute="centerX" secondItem="ctk-oZ-NIe" secondAttribute="centerX" id="xaS-ZX-FsN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fPu-cW-63J"/>
                     </view>
+                    <connections>
+                        <outlet property="timeLabel" destination="yZJ-Sx-mkV" id="ERN-qd-3Gv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKU-x4-SYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

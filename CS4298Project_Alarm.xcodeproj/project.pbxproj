@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36E115582089F48200288743 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E115572089F48200288743 /* TimeViewController.swift */; };
 		C397BE9E208434A800B5A7F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C397BE9D208434A800B5A7F0 /* AppDelegate.swift */; };
 		C397BEA0208434A800B5A7F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C397BE9F208434A800B5A7F0 /* ViewController.swift */; };
 		C397BEA3208434A800B5A7F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C397BEA1208434A800B5A7F0 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36E115572089F48200288743 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		C397BE9A208434A800B5A7F0 /* CS4298Project_Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS4298Project_Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C397BE9D208434A800B5A7F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C397BE9F208434A800B5A7F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				C397BE9D208434A800B5A7F0 /* AppDelegate.swift */,
 				C397BE9F208434A800B5A7F0 /* ViewController.swift */,
+				36E115572089F48200288743 /* TimeViewController.swift */,
 				C397BEA1208434A800B5A7F0 /* Main.storyboard */,
 				C397BEA4208434A800B5A7F0 /* Assets.xcassets */,
 				C397BEA6208434A800B5A7F0 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C397BEA0208434A800B5A7F0 /* ViewController.swift in Sources */,
+				36E115582089F48200288743 /* TimeViewController.swift in Sources */,
 				C397BE9E208434A800B5A7F0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
