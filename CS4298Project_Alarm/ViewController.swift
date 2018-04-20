@@ -13,13 +13,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     let center = UNUserNotificationCenter.current()
+    let content = UNMutableNotificationContent()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         datePicker.date = Date()
         let options: UNAuthorizationOptions = [.alert, .sound];
         center.requestAuthorization(options: options) {
             (granted, error) in
+            if granted {
+                self.setNotification()
+            }
             if !granted {
                 print("Something went wrong")
             }
@@ -40,20 +45,23 @@ class ViewController: UIViewController {
         dateFormatter.dateStyle = .short
         dateFormatter.locale = NSLocale.system
         
-        let content = UNMutableNotificationContent()
+        
         let date = datePicker.date
         content.title = "Alarm"
-        content.body = "\(date)"
         content.sound = UNNotificationSound.default()
         
         
-        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+        var triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+        triggerDate.second = 0
         print(triggerDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         
         let identifier = "UYLLocalNotification"
-        let request = UNNotificationRequest(identifier: identifier,
-                                            content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        
+        
+        
         center.add(request, withCompletionHandler: { (error) in
             if error != nil {
                 // Something went wrong
@@ -61,6 +69,26 @@ class ViewController: UIViewController {
         })
         
         
+        let alert = UIAlertController(title: "Set alarm successsfully!", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("success")
+            self.performSegue(withIdentifier: "segue", sender: self)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func setNotification() {
+        let snoozeAction = UNNotificationAction(identifier: "Snooze",
+                                                title: "Snooze", options: [.destructive])
+        let deleteAction = UNNotificationAction(identifier: "UYLDeleteAction",
+                                                title: "Stop Alarm", options: [.foreground])
+        let category = UNNotificationCategory(identifier: "UYLReminderCategory",
+                                              actions: [snoozeAction,deleteAction],
+                                              intentIdentifiers: [], options: [])
+        center.setNotificationCategories([category])
+        content.categoryIdentifier = "UYLReminderCategory"
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,5 +96,5 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
 }
+
