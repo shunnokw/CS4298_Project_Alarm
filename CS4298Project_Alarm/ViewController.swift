@@ -11,6 +11,8 @@ import UserNotifications
 
 class ViewController: UIViewController {
     
+    
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     let center = UNUserNotificationCenter.current()
     let content = UNMutableNotificationContent()
@@ -50,6 +52,7 @@ class ViewController: UIViewController {
         date = datePicker.date
         
         content.title = "Alarm"
+        content.badge = 1
         content.sound = UNNotificationSound(named: "bell.wav")
         
         
@@ -105,10 +108,16 @@ class ViewController: UIViewController {
         content.categoryIdentifier = "UYLReminderCategory"
     }
     
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 }
+
+
+
+
 

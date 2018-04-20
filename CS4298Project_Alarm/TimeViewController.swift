@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class TimeViewController: UIViewController {
 
@@ -27,3 +28,11 @@ class TimeViewController: UIViewController {
     
 
 }
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.badge, .sound, .alert])
+    }
+}
+
