@@ -16,9 +16,10 @@ class Maths: UIViewController {
     var symbolController: Int = 0
     var answer1: Int = 0
     var answer2: Int = 0
-    var answer3: Int = 0
-    var answer4: Int = 0
+    var answer3: Int?
+    var completeAns: Int = 0
     
+    var isPlus: Bool = true
     var inputController: Int = 0
     
     @IBOutlet weak var showNum1: UILabel!
@@ -64,12 +65,74 @@ class Maths: UIViewController {
         answer1 = 0
         answer2 = 0
         answer3 = 0
-        answer4 = 0
-        initial()
-  
+        //answer4 = 0
+        initialLabel()
     }
     @IBAction func submit(_ sender: Any) {
-        let alertController =
+        if(answer3 != nil){
+            completeAns = answer1*100 + answer2*10 + answer3!
+        }
+        if(answer3 == nil){
+            completeAns = answer1*10 + answer2
+        }
+        
+        
+        print("My ans", completeAns)
+        if(isCorrect(ans: completeAns) == true){
+            print("Correct")
+            let alert = UIAlertController(title: "Correct!", message: "The Alarm has been stopped", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            self.present(alert, animated: true, completion: nil)
+        }
+        else{
+            print("Wrong")
+            let alert2 = UIAlertController(title: "Wrong!", message: "Please try again to stop the alarm", preferredStyle: UIAlertControllerStyle.alert)
+            alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            self.present(alert2, animated: true, completion: nil)
+        }
+    }
+    
+    func isCorrect(ans:Int) -> Bool {
+        var realAns:Int
+        if (isPlus == true){
+            realAns = num1+num2
+            print("The real sum ans", realAns)
+            if (ans == realAns){
+                return true
+            }
+        }
+        else{
+            realAns = num1-num2
+            print("The real minus ans", realAns)
+            if (ans == realAns){
+                return true
+            }
+        }
+        return false
     }
     
     func addAns(sub:Int) -> Void {
@@ -86,32 +149,26 @@ class Maths: UIViewController {
             break
         case 2:
             answer3 = sub
-            showAnswer3.text = String(answer3)
+            showAnswer3.text = String(answer3!)
             inputController += 1
             break
-        case 3:
-            answer4 = sub
-            showAnswer4.text = String(answer4)
-            inputController += 1
-            break
+        
         default: break
             
         }
     }
     
-    func initial() {
+    func initialLabel() {
         //Initialize
-         showAnswer1.text = ""
-         showAnswer2.text = ""
-         showAnswer3.text = ""
-         showAnswer4.text = ""
+         showAnswer1.text = nil
+         showAnswer2.text = nil
+         showAnswer3.text = nil
+        answer3 = nil
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initial()
-        
+        initialLabel()
         // Do any additional setup after loading the view.
         
         //Generate random number
@@ -127,9 +184,11 @@ class Maths: UIViewController {
         
         if symbolController==0 {
             showSymbol.text = "+"
+            isPlus = true
         }
         else {
             showSymbol.text = "-"
+            isPlus = false
         }
     }
     
