@@ -10,6 +10,7 @@
 		36E115582089F48200288743 /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E115572089F48200288743 /* TimeViewController.swift */; };
 		36E1155C2089FE6900288743 /* bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 36E1155B2089FE6900288743 /* bell.wav */; };
 		57ADF7002090393E008CF3F1 /* Maths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ADF6FF2090393E008CF3F1 /* Maths.swift */; };
+		57ADF7042090E928008CF3F1 /* Shake2Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ADF7032090E928008CF3F1 /* Shake2Stop.swift */; };
 		C397BE9E208434A800B5A7F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C397BE9D208434A800B5A7F0 /* AppDelegate.swift */; };
 		C397BEA0208434A800B5A7F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C397BE9F208434A800B5A7F0 /* ViewController.swift */; };
 		C397BEA3208434A800B5A7F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C397BEA1208434A800B5A7F0 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		36E115572089F48200288743 /* TimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		36E1155B2089FE6900288743 /* bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bell.wav; sourceTree = "<group>"; };
 		57ADF6FF2090393E008CF3F1 /* Maths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maths.swift; sourceTree = "<group>"; };
+		57ADF7032090E928008CF3F1 /* Shake2Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake2Stop.swift; sourceTree = "<group>"; };
 		C397BE9A208434A800B5A7F0 /* CS4298Project_Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS4298Project_Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C397BE9D208434A800B5A7F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C397BE9F208434A800B5A7F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				C397BE9D208434A800B5A7F0 /* AppDelegate.swift */,
 				C397BE9F208434A800B5A7F0 /* ViewController.swift */,
 				57ADF6FF2090393E008CF3F1 /* Maths.swift */,
+				57ADF7032090E928008CF3F1 /* Shake2Stop.swift */,
 				36E115572089F48200288743 /* TimeViewController.swift */,
 				C397BEA1208434A800B5A7F0 /* Main.storyboard */,
 				C397BEA4208434A800B5A7F0 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57ADF7042090E928008CF3F1 /* Shake2Stop.swift in Sources */,
 				C397BEA0208434A800B5A7F0 /* ViewController.swift in Sources */,
 				36E115582089F48200288743 /* TimeViewController.swift in Sources */,
 				C397BE9E208434A800B5A7F0 /* AppDelegate.swift in Sources */,
@@ -206,7 +210,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: shunnokwlol@gmail.com (4ZDK3N52X2)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -265,7 +269,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: shunnokwlol@gmail.com (4ZDK3N52X2)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -290,14 +294,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6FCS6E7FM6;
+				DEVELOPMENT_TEAM = 5K2R6NQH72;
 				INFOPLIST_FILE = CS4298Project_Alarm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cs4298.CS4298Project-Alarm";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CS4298Project-Alarm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,14 +313,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6FCS6E7FM6;
+				DEVELOPMENT_TEAM = 5K2R6NQH72;
 				INFOPLIST_FILE = CS4298Project_Alarm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cs4298.CS4298Project-Alarm";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.CS4298Project-Alarm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
