@@ -95,6 +95,25 @@ class ViewController: UIViewController {
         }
     }
     
+    func stopAlarm() -> UIAlertController {
+        let alertS = UIAlertController(title: "Done", message: "The alarm has been stopped", preferredStyle: UIAlertControllerStyle.alert)
+        alertS.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                print("default")
+                
+            case .cancel:
+                print("cancel")
+                
+            case .destructive:
+                print("destructive")
+                
+                
+            }}))
+        print("stopped")
+        return alertS
+    }
+    
     
     func setNotification() {
         let snoozeAction = UNNotificationAction(identifier: "Snooze",

@@ -11,11 +11,13 @@ import Darwin
 
 class Maths: UIViewController {
     
+    let alarm = ViewController()
+    
     var num1: Int = 0
     var num2: Int = 0
     var symbolController: Int = 0
-    var answer1: Int = 0
-    var answer2: Int = 0
+    var answer1: Int?
+    var answer2: Int?
     var answer3: Int?
     var completeAns: Int = 0
     
@@ -28,7 +30,6 @@ class Maths: UIViewController {
     @IBOutlet weak var showAnswer1: UILabel!
     @IBOutlet weak var showAnswer2: UILabel!
     @IBOutlet weak var showAnswer3: UILabel!
-    @IBOutlet weak var showAnswer4: UILabel!
     
     @IBAction func onClick0(_ sender: Any) {
         addAns(sub: 0)
@@ -65,36 +66,27 @@ class Maths: UIViewController {
         answer1 = 0
         answer2 = 0
         answer3 = 0
-        //answer4 = 0
+        
         initialLabel()
     }
     @IBAction func submit(_ sender: Any) {
-        if(answer3 != nil){
-            completeAns = answer1*100 + answer2*10 + answer3!
-        }
         if(answer3 == nil){
-            completeAns = answer1*10 + answer2
+            if(answer2 == nil){
+                completeAns = answer1!
+            }
+            else{
+                completeAns = answer1!*10 + answer2!
+            }
         }
-        
+        else{
+            completeAns = answer1!*100 + answer2!*10 + answer3!
+        }
         
         print("My ans", completeAns)
         if(isCorrect(ans: completeAns) == true){
             print("Correct")
-            let alert = UIAlertController(title: "Correct!", message: "The Alarm has been stopped", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                switch action.style{
-                case .default:
-                    print("default")
-                    
-                case .cancel:
-                    print("cancel")
-                    
-                case .destructive:
-                    print("destructive")
-                    
-                    
-                }}))
-            self.present(alert, animated: true, completion: nil)
+            initialPara()
+            self.present(alarm.stopAlarm(), animated: true, completion: nil)
         }
         else{
             print("Wrong")
@@ -139,12 +131,12 @@ class Maths: UIViewController {
         switch inputController {
         case 0:
             answer1 = sub
-            showAnswer1.text = String(answer1)
+            showAnswer1.text = String(answer1!)
             inputController += 1
             break
         case 1:
             answer2 = sub
-            showAnswer2.text = String(answer2)
+            showAnswer2.text = String(answer2!)
             inputController += 1
             break
         case 2:
@@ -160,18 +152,19 @@ class Maths: UIViewController {
     
     func initialLabel() {
         //Initialize
-         showAnswer1.text = nil
-         showAnswer2.text = nil
-         showAnswer3.text = nil
-        answer3 = nil
+        if showAnswer1.text != nil {
+            showAnswer1.text = nil
+            showAnswer2.text = nil
+            showAnswer3.text = nil
+            answer3 = nil
+        }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        initialLabel()
-        // Do any additional setup after loading the view.
-        
+    func initialPara() {
         //Generate random number
+        num1 = 0
+        num2 = 0
+        
         repeat {
             num1 = Int(arc4random_uniform(100))
             num2 = Int(arc4random_uniform(100))
@@ -190,6 +183,13 @@ class Maths: UIViewController {
             showSymbol.text = "-"
             isPlus = false
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        initialLabel()
+        initialPara()
     }
     
     override func didReceiveMemoryWarning() {

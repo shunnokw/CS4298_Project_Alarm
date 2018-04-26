@@ -10,6 +10,7 @@ import UIKit
 
 class Shake2Stop: UIViewController {
     
+    let alarm = ViewController()
     var shakeCount: Int = 0
     
     @IBOutlet weak var showShakeCount: UILabel!
@@ -22,22 +23,8 @@ class Shake2Stop: UIViewController {
                 showShakeCount.text = String(shakeCount)
             }
             if shakeCount == 10{
-                let alert2 = UIAlertController(title: "Finished!", message: "The alarm has been stopped", preferredStyle: UIAlertControllerStyle.alert)
-                alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    switch action.style{
-                    case .default:
-                        print("default")
-                        
-                    case .cancel:
-                        print("cancel")
-                        
-                    case .destructive:
-                        print("destructive")
-    
-                    }}))
-                self.present(alert2, animated: true, completion: nil)
+                self.present(alarm.stopAlarm(), animated: true, completion: nil)
             }
-            
         }
     }
     
